@@ -55,7 +55,12 @@
 }
      navigator.geolocation.getCurrentPosition((position) => {
         document.getElementById("location").innerHTML= 'lat:'+position.coords.latitude + 'long:'+position.coords.longitude;
-         console.log(suntimes(position.coords.latitude,position.coords.longitude));
+         var times = suntimes(position.coords.latitude,position.coords.longitude);
+         var minuterise =   Math.trunc( times[0] - Math.trunc(times[0]) ) * 60);
+         var minuteset =   Math.trunc( times[1] - Math.trunc(times[1]) ) * 60)
+         document.getElementById("sunrise").innerHTML= 'Sun Rise: '+  Math.trunc(times[0]) + ' : ' + minuterise;
+         document.getElementById("sunset").innerHTML= 'Sun Set: '+ Math.trunc(times[1]) + ' : ' + minuteset;
+      
     });
  </script>
 <body>
@@ -75,6 +80,8 @@
             <p>All Round Business Application for your shop</p>            
             <h2>Contact</h2>
             <h3 id="location"> Location </h3>
+            <h3 id="sunrise"> Sun Rise </h3>
+            <h3 id="sunset"> Sun Set </h3>
             <p>owner@popmylist.com</p>
         </div>
     </div>
