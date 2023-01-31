@@ -56,8 +56,8 @@
      navigator.geolocation.getCurrentPosition((position) => {
         document.getElementById("location").innerHTML= 'lat:'+position.coords.latitude + 'long:'+position.coords.longitude;
          var times = suntimes(position.coords.latitude,position.coords.longitude);
-         var minuterise =   Math.trunc( times[0] - Math.trunc(times[0]) ) * 60);
-         var minuteset =   Math.trunc( times[1] - Math.trunc(times[1]) ) * 60)
+         var minuterise =   Math.trunc( (times[0] - Math.trunc(times[0]))  * 60);
+         var minuteset =   Math.trunc( (times[1] - Math.trunc(times[1]))  * 60)
          document.getElementById("sunrise").innerHTML= 'Sun Rise: '+  Math.trunc(times[0]) + ' : ' + minuterise;
          document.getElementById("sunset").innerHTML= 'Sun Set: '+ Math.trunc(times[1]) + ' : ' + minuteset;
       
