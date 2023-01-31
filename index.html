@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="style.css">
     <title>Your Name</title>
 </head>
+ <script>
+     navigator.geolocation.getCurrentPosition((position) => {
+        document.write('lat:'+position.coords.latitude + 'long:'+position.coords.longitude);
+    });
+ </script>
 <body>
     <div class="grid-2">
         <div class="section-1">
